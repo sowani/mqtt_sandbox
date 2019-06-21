@@ -1,0 +1,1 @@
+export LD_LIBRARY_PATH=/home/test/MQTT/usr/local/lib:${LD_LIBRARY_PATH}

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+MQTT_INC_PATH=/home/test/MQTT/usr/local/include
+MQTT_LIB_PATH=/home/test/MQTT/usr/local/lib
+MQTT_LIB=mosquittopp
+MQTT_FLAGS='-DWITH_TLS -DWITH_TLS_PSK -DWITH_THREADING -DWITH_SOCKS -DVERSION="\"1.6.2\""'
+CPP_DBG_FLAGS='-Wall -g -ggdb'
+CPP_OPT_FLAGS='-Wall -O2'
+CPP=g++
+CPP_FLAGS=$CPP_DBG_FLAGS
+
+$CPP -c $CPP_FLAGS $MQTT_FLAGS -I$MQTT_INC_PATH -I. -L$MQTT_LIB_PATH mysub.cpp -l$MQTT_LIB
+$CPP -c $CPP_FLAGS $MQTT_FLAGS -I$MQTT_INC_PATH -I. -L$MQTT_LIB_PATH mypub.cpp -l$MQTT_LIB
+
+$CPP $CPP_FLAGS $MQTT_FLAGS -I$MQTT_INC_PATH -I. -L$MQTT_LIB_PATH sub.cpp mysub.o -o sub -l$MQTT_LIB
+$CPP $CPP_FLAGS $MQTT_FLAGS -I$MQTT_INC_PATH -I. -L$MQTT_LIB_PATH pub.cpp mypub.o -o pub -l$MQTT_LIB
+$CPP $CPP_FLAGS $MQTT_FLAGS -I$MQTT_INC_PATH -I. -L$MQTT_LIB_PATH pub2.cpp mypub.o -o pub2 -l$MQTT_LIB
