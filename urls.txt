@@ -1,0 +1,7 @@
+good:
+https://github.com/Auctoris/mosquitopp_client
+https://www.disk91.com/2013/technology/programming/mosquitto-c-sample-code-to-publish-message/
+
+not-so-useful:
+http://programmingwithreason.com/article-mqtt-in-depth.html
+http://wiki.neuromeka.net/index.php?title=Implementing_MQTT_Client_using_C%2B%2B_with_libmosquitto
